@@ -1,96 +1,108 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Alume — Portal do Cliente</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bege: #E8DDD0;
-  --bege-dark: #D4C5B2;
-  --terra: #B5541A;
-  --terra-light: #C8693A;
-  --marrom: #5C1A0A;
-  --marrom-light: #7A2810;
-  --creme: #F5F0EA;
-  --texto: #2C1A12;
-  --texto-muted: #8C6E5E;
-  --branco: #FDFAF7;
-  --borda: rgba(92,26,10,0.12);
-  --sombra: rgba(92,26,10,0.08);
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Studio Alume &mdash; Portal do Cliente</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" type="text/css" />
+<style type="text/css">
+/* ============================================================
+   PALETA DE CORES (sem CSS custom properties)
+   bege:        #E8DDD0
+   bege-dark:   #D4C5B2
+   terra:       #B5541A
+   terra-light: #C8693A
+   marrom:      #5C1A0A
+   marrom-light:#7A2810
+   creme:       #F5F0EA
+   texto:       #2C1A12
+   texto-muted: #8C6E5E
+   branco:      #FDFAF7
+   borda:       #e0d0c4
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--creme); color: var(--texto); }
+
+html, body {
+  height: 100%;
+  font-family: 'Jost', Arial, sans-serif;
+  background: #F5F0EA;
+  color: #2C1A12;
+  font-size: 14px;
+}
 
 /* ─── TELAS ─── */
-.screen { display: none; min-height: 100vh; }
-.screen.active { display: flex; }
+.screen {
+  display: none;
+  min-height: 100%;
+  width: 100%;
+}
+.screen-active {
+  display: block;
+}
+
+/* ─── WRAPPERS DE LAYOUT ─── */
+.layout-wrap {
+  width: 100%;
+  min-height: 100vh;
+}
+/* Simula flex row com float */
+.layout-wrap:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /* ─── LOGIN ─── */
 #login {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: var(--bege);
-  position: relative;
-  overflow: hidden;
-}
-#login::before {
-  content: '';
-  position: absolute;
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  border: 1px solid rgba(181,84,26,0.12);
-  top: -200px; right: -200px;
-}
-#login::after {
-  content: '';
-  position: absolute;
-  width: 400px; height: 400px;
-  border-radius: 50%;
-  border: 1px solid rgba(181,84,26,0.08);
-  bottom: -150px; left: -100px;
+  background: #E8DDD0;
+  min-height: 100vh;
+  text-align: center;
+  padding: 80px 20px;
 }
 .login-box {
-  background: var(--branco);
-  border: 1px solid var(--borda);
-  border-radius: 2px;
+  background: #FDFAF7;
+  border: 1px solid #e0d0c4;
   padding: 52px 48px;
   width: 100%;
   max-width: 420px;
-  position: relative;
-  z-index: 1;
-  animation: fadeUp .6s ease both;
+  margin: 0 auto;
+  text-align: left;
 }
 .login-logo {
   text-align: center;
   margin-bottom: 36px;
 }
 .login-logo .studio {
-  font-family: 'Jost', sans-serif;
+  font-family: 'Jost', Arial, sans-serif;
   font-weight: 300;
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--texto-muted);
+  color: #8C6E5E;
   display: block;
   margin-bottom: 4px;
 }
 .login-logo .nome {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 42px;
   font-weight: 300;
-  color: var(--marrom);
+  color: #5C1A0A;
   line-height: 1;
   font-style: italic;
+  display: block;
 }
-.login-logo .nome span { color: var(--terra); font-style: normal; }
+.login-logo .nome span { color: #B5541A; font-style: normal; }
 .login-sub {
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--texto-muted);
+  color: #8C6E5E;
   text-align: center;
   margin-bottom: 36px;
   font-weight: 300;
@@ -101,324 +113,498 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--texto-muted);
+  color: #8C6E5E;
   margin-bottom: 8px;
   font-weight: 400;
 }
 .field input {
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid var(--borda);
-  border-radius: 1px;
-  background: var(--creme);
-  font-family: 'Jost', sans-serif;
+  border: 1px solid #e0d0c4;
+  background: #F5F0EA;
+  font-family: 'Jost', Arial, sans-serif;
   font-size: 14px;
-  color: var(--texto);
+  color: #2C1A12;
   outline: none;
-  transition: border-color .2s;
 }
-.field input:focus { border-color: var(--terra); }
+.field input:focus { border-color: #B5541A; }
 .btn-login {
   width: 100%;
   padding: 14px;
-  background: var(--marrom);
-  color: var(--bege);
+  background: #5C1A0A;
+  color: #E8DDD0;
   border: none;
-  border-radius: 1px;
-  font-family: 'Jost', sans-serif;
+  font-family: 'Jost', Arial, sans-serif;
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
   cursor: pointer;
   margin-top: 8px;
-  transition: background .2s;
 }
-.btn-login:hover { background: var(--terra); }
+.btn-login:hover { background: #B5541A; }
 .login-hint {
   text-align: center;
   margin-top: 20px;
   font-size: 11px;
-  color: var(--texto-muted);
+  color: #8C6E5E;
 }
 .login-hint button {
-  background: none; border: none; color: var(--terra);
-  cursor: pointer; font-size: 11px; text-decoration: underline;
-  font-family: 'Jost', sans-serif;
+  background: none;
+  border: none;
+  color: #B5541A;
+  cursor: pointer;
+  font-size: 11px;
+  text-decoration: underline;
+  font-family: 'Jost', Arial, sans-serif;
 }
 .demo-btns {
-  display: flex; gap: 8px; margin-top: 28px; padding-top: 24px;
-  border-top: 1px solid var(--borda);
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #e0d0c4;
 }
+.demo-btns:after { content: ""; display: table; clear: both; }
 .demo-btn {
-  flex: 1; padding: 10px 8px;
-  border: 1px solid var(--borda);
-  background: var(--creme);
-  border-radius: 1px;
-  font-family: 'Jost', sans-serif;
+  float: left;
+  width: 48%;
+  padding: 10px 8px;
+  border: 1px solid #e0d0c4;
+  background: #F5F0EA;
+  font-family: 'Jost', Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--texto-muted);
+  color: #8C6E5E;
   cursor: pointer;
-  transition: all .2s;
+  margin-right: 4%;
 }
-.demo-btn:hover { border-color: var(--terra); color: var(--terra); }
-
-/* ─── LAYOUT PRINCIPAL ─── */
-#cliente, #escritorio {
-  flex-direction: row;
-  background: var(--creme);
-}
+.demo-btn:last-child { margin-right: 0; }
+.demo-btn:hover { border-color: #B5541A; color: #B5541A; }
 
 /* ─── SIDEBAR ─── */
 .sidebar {
   width: 220px;
   min-height: 100vh;
-  background: var(--marrom);
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  flex-shrink: 0;
+  background: #5C1A0A;
+  float: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
 }
 .sidebar-logo {
   padding: 32px 24px 28px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-.sidebar-logo .s { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(232,221,208,0.5); font-weight: 300; }
-.sidebar-logo .n { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--bege); font-style: italic; line-height: 1.1; }
-.sidebar-logo .n span { color: var(--terra-light); font-style: normal; }
-.sidebar-nav { padding: 20px 0; flex: 1; }
+.sidebar-logo .s {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #a08070;
+  font-weight: 300;
+  display: block;
+}
+.sidebar-logo .n {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: #E8DDD0;
+  font-style: italic;
+  line-height: 1.1;
+  display: block;
+}
+.sidebar-logo .n span { color: #C8693A; font-style: normal; }
+.sidebar-nav { padding: 20px 0; }
 .nav-item {
-  display: flex; align-items: center; gap: 12px;
+  display: block;
   padding: 11px 24px;
   font-size: 11px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(232,221,208,0.5);
+  color: #a08070;
   cursor: pointer;
-  transition: all .2s;
   border-left: 2px solid transparent;
+  text-decoration: none;
 }
-.nav-item:hover { color: var(--bege); background: rgba(255,255,255,0.04); }
-.nav-item.active { color: var(--bege); border-left-color: var(--terra-light); background: rgba(255,255,255,0.06); }
-.nav-icon { width: 16px; height: 16px; opacity: .7; }
+.nav-item:hover { color: #E8DDD0; background: rgba(255,255,255,0.04); }
+.nav-item-active { color: #E8DDD0; border-left-color: #C8693A; background: rgba(255,255,255,0.06); }
+.nav-icon-wrap { display: inline-block; width: 20px; vertical-align: middle; margin-right: 8px; }
+.nav-icon { width: 16px; height: 16px; vertical-align: middle; }
 .sidebar-user {
   padding: 20px 24px;
   border-top: 1px solid rgba(255,255,255,0.08);
   font-size: 11px;
-  color: rgba(232,221,208,0.5);
+  color: #a08070;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 220px;
+  background: #5C1A0A;
 }
-.sidebar-user strong { display: block; color: var(--bege); font-weight: 400; margin-bottom: 2px; font-size: 12px; }
+.sidebar-user strong {
+  display: block;
+  color: #E8DDD0;
+  font-weight: 400;
+  margin-bottom: 2px;
+  font-size: 12px;
+}
 .sidebar-user button {
-  margin-top: 10px; background: none; border: 1px solid rgba(255,255,255,0.12);
-  color: rgba(232,221,208,0.5); font-family: 'Jost', sans-serif;
-  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-  padding: 6px 10px; border-radius: 1px; cursor: pointer;
-  transition: all .2s;
+  margin-top: 10px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #a08070;
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  cursor: pointer;
 }
-.sidebar-user button:hover { color: var(--bege); border-color: rgba(255,255,255,0.3); }
+.sidebar-user button:hover { color: #E8DDD0; border-color: rgba(255,255,255,0.3); }
 
 /* ─── MAIN ─── */
-.main { flex: 1; padding: 40px 48px; overflow-y: auto; max-width: 960px; }
+.main {
+  margin-left: 220px;
+  padding: 40px 48px 80px;
+  min-height: 100vh;
+  background: #F5F0EA;
+}
 .page { display: none; }
-.page.active { display: block; animation: fadeUp .4s ease both; }
+.page-active { display: block; }
 .page-header { margin-bottom: 36px; }
 .page-header h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px; font-weight: 300; color: var(--marrom);
-  line-height: 1; font-style: italic;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #5C1A0A;
+  line-height: 1;
+  font-style: italic;
 }
-.page-header p { font-size: 12px; color: var(--texto-muted); margin-top: 8px; letter-spacing: .5px; }
+.page-header p {
+  font-size: 12px;
+  color: #8C6E5E;
+  margin-top: 8px;
+  letter-spacing: .5px;
+}
 
 /* ─── MÉTRICAS ─── */
-.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 16px; margin-bottom: 40px; }
+.metrics { margin-bottom: 40px; }
+.metrics:after { content: ""; display: table; clear: both; }
 .metric {
-  background: var(--branco);
-  border: 1px solid var(--borda);
+  float: left;
+  width: 22%;
+  margin-right: 3%;
+  background: #FDFAF7;
+  border: 1px solid #e0d0c4;
   padding: 20px 22px;
-  border-radius: 1px;
+  margin-bottom: 16px;
 }
-.metric-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--texto-muted); margin-bottom: 8px; }
-.metric-val { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--marrom); line-height: 1; }
-.metric-sub { font-size: 11px; color: var(--texto-muted); margin-top: 4px; }
+.metric:last-child { margin-right: 0; }
+.metric-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8C6E5E;
+  margin-bottom: 8px;
+}
+.metric-val {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: #5C1A0A;
+  line-height: 1;
+}
+.metric-sub { font-size: 11px; color: #8C6E5E; margin-top: 4px; }
 
 /* ─── CARD PROJETO ─── */
 .section-title {
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--texto-muted); margin-bottom: 16px;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8C6E5E;
+  margin-bottom: 16px;
 }
 .projeto-card {
-  background: var(--branco);
-  border: 1px solid var(--borda);
-  border-radius: 1px;
+  background: #FDFAF7;
+  border: 1px solid #e0d0c4;
   padding: 24px 28px;
   margin-bottom: 16px;
-  transition: border-color .2s;
 }
-.projeto-card:hover { border-color: rgba(181,84,26,0.25); }
-.projeto-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 8px; }
-.projeto-nome { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--marrom); }
-.projeto-cliente { font-size: 11px; color: var(--texto-muted); margin-top: 2px; }
+.projeto-top { margin-bottom: 20px; }
+.projeto-top:after { content: ""; display: table; clear: both; }
+.projeto-top-info { float: left; }
+.projeto-top-badge { float: right; }
+.projeto-nome {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #5C1A0A;
+}
+.projeto-cliente { font-size: 11px; color: #8C6E5E; margin-top: 2px; }
 .badge {
-  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
-  padding: 4px 12px; border-radius: 1px; font-weight: 500;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  font-weight: 500;
+  display: inline-block;
 }
-.badge-andamento { background: rgba(181,84,26,0.1); color: var(--terra); }
-.badge-aguardando { background: rgba(212,165,0,0.1); color: #8a6800; }
-.badge-concluido { background: rgba(60,130,60,0.1); color: #2d6b2d; }
+.badge-andamento { background: #f5e8e0; color: #B5541A; }
+.badge-aguardando { background: #faf4e0; color: #8a6800; }
+.badge-concluido { background: #e0f0e0; color: #2d6b2d; }
 
 /* ─── PROGRESSO ─── */
-.progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--texto-muted); margin-bottom: 8px; }
-.progress-track { height: 2px; background: var(--bege-dark); border-radius: 1px; overflow: hidden; margin-bottom: 20px; }
-.progress-fill { height: 100%; background: var(--terra); border-radius: 1px; transition: width .6s ease; }
+.progress-label { margin-bottom: 8px; font-size: 11px; color: #8C6E5E; }
+.progress-label:after { content: ""; display: table; clear: both; }
+.progress-label span { float: left; }
+.progress-label span + span { float: right; }
+.progress-track {
+  height: 2px;
+  background: #D4C5B2;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.progress-fill {
+  height: 100%;
+  background: #B5541A;
+}
 
 /* ─── ETAPAS ─── */
-.etapas { display: flex; gap: 0; margin-bottom: 20px; }
-.etapa { flex: 1; display: flex; flex-direction: column; align-items: center; position: relative; }
-.etapa:not(:last-child)::after {
-  content: ''; position: absolute; top: 8px; left: 50%; width: 100%; height: 1px;
-  background: var(--bege-dark);
+.etapas { margin-bottom: 20px; }
+.etapas:after { content: ""; display: table; clear: both; }
+.etapa {
+  float: left;
+  width: 25%;
+  text-align: center;
+  position: relative;
 }
-.etapa.feita:not(:last-child)::after { background: var(--terra); }
 .etapa-dot {
-  width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--bege-dark);
-  background: var(--branco); display: flex; align-items: center; justify-content: center;
-  font-size: 8px; color: var(--texto-muted); position: relative; z-index: 1;
-  transition: all .3s;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #D4C5B2;
+  background: #FDFAF7;
+  display: block;
+  margin: 0 auto 7px;
+  font-size: 8px;
+  color: #8C6E5E;
+  text-align: center;
+  line-height: 16px;
 }
-.etapa.feita .etapa-dot { background: var(--terra); border-color: var(--terra); color: var(--branco); }
-.etapa.atual .etapa-dot { border-color: var(--terra); color: var(--terra); }
-.etapa-nome { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--texto-muted); margin-top: 7px; text-align: center; }
-.etapa.feita .etapa-nome, .etapa.atual .etapa-nome { color: var(--terra); }
+.etapa-feita .etapa-dot { background: #B5541A; border-color: #B5541A; color: #FDFAF7; }
+.etapa-atual .etapa-dot { border-color: #B5541A; color: #B5541A; }
+.etapa-nome {
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8C6E5E;
+  display: block;
+}
+.etapa-feita .etapa-nome, .etapa-atual .etapa-nome { color: #B5541A; }
 
 /* ─── AÇÕES ─── */
-.card-actions { display: flex; gap: 10px; margin-top: 4px; flex-wrap: wrap; }
+.card-actions { margin-top: 4px; }
+.card-actions:after { content: ""; display: table; clear: both; }
 .btn-acao {
-  padding: 8px 18px; font-family: 'Jost', sans-serif;
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  border-radius: 1px; cursor: pointer; transition: all .2s;
+  float: left;
+  padding: 8px 18px;
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  border: 1px solid #e0d0c4;
 }
-.btn-outline { background: transparent; border: 1px solid var(--borda); color: var(--texto-muted); }
-.btn-outline:hover { border-color: var(--terra); color: var(--terra); }
-.btn-solid { background: var(--marrom); border: 1px solid var(--marrom); color: var(--bege); }
-.btn-solid:hover { background: var(--terra); border-color: var(--terra); }
-.btn-terra { background: var(--terra); border: 1px solid var(--terra); color: var(--branco); }
-.btn-terra:hover { background: var(--terra-light); border-color: var(--terra-light); }
+.btn-outline { background: transparent; color: #8C6E5E; }
+.btn-outline:hover { border-color: #B5541A; color: #B5541A; }
+.btn-solid { background: #5C1A0A; border-color: #5C1A0A; color: #E8DDD0; }
+.btn-solid:hover { background: #B5541A; border-color: #B5541A; }
+.btn-terra { background: #B5541A; border-color: #B5541A; color: #FDFAF7; }
+.btn-terra:hover { background: #C8693A; border-color: #C8693A; }
 
 /* ─── ARQUIVOS ─── */
 .arquivo-item {
-  display: flex; align-items: center; gap: 14px;
-  padding: 12px 0; border-bottom: 1px solid var(--borda);
+  padding: 12px 0;
+  border-bottom: 1px solid #e0d0c4;
 }
 .arquivo-item:last-child { border-bottom: none; }
+.arquivo-item:after { content: ""; display: table; clear: both; }
 .arquivo-icon {
-  width: 34px; height: 34px; border-radius: 1px;
-  background: var(--bege); display: flex; align-items: center;
-  justify-content: center; font-size: 9px; font-weight: 500;
-  color: var(--marrom); letter-spacing: 1px; flex-shrink: 0;
+  float: left;
+  width: 34px;
+  height: 34px;
+  background: #E8DDD0;
+  font-size: 9px;
+  font-weight: 500;
+  color: #5C1A0A;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 34px;
+  margin-right: 14px;
 }
-.arquivo-nome { font-size: 13px; color: var(--texto); flex: 1; }
-.arquivo-info { font-size: 11px; color: var(--texto-muted); margin-top: 2px; }
-.arquivo-status { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; }
-.bloqueado { color: var(--texto-muted); }
+.arquivo-info-wrap { float: left; width: calc(100% - 120px); }
+.arquivo-nome { font-size: 13px; color: #2C1A12; }
+.arquivo-info-sub { font-size: 11px; color: #8C6E5E; margin-top: 2px; }
+.arquivo-status { float: right; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding-top: 8px; }
+.bloqueado { color: #8C6E5E; }
 .disponivel { color: #2d6b2d; cursor: pointer; text-decoration: underline; }
 
 /* ─── PAGAMENTO ─── */
 .pagamento-card {
-  background: var(--branco); border: 1px solid var(--borda);
-  border-radius: 1px; padding: 28px; max-width: 480px;
+  background: #FDFAF7;
+  border: 1px solid #e0d0c4;
+  padding: 28px;
+  max-width: 480px;
 }
-.pag-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--borda); }
+.pag-row {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0d0c4;
+}
+.pag-row:after { content: ""; display: table; clear: both; }
 .pag-row:last-of-type { border-bottom: none; }
-.pag-label { font-size: 11px; color: var(--texto-muted); letter-spacing: .5px; }
-.pag-val { font-size: 13px; font-weight: 400; color: var(--texto); }
-.pag-total { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--marrom); }
+.pag-label { float: left; font-size: 11px; color: #8C6E5E; letter-spacing: .5px; }
+.pag-val { float: right; font-size: 13px; font-weight: 400; color: #2C1A12; }
+.pag-total {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  color: #5C1A0A;
+  float: right;
+}
 .pix-box {
-  background: var(--bege); border-radius: 1px; padding: 16px;
-  text-align: center; margin: 20px 0;
+  background: #E8DDD0;
+  padding: 16px;
+  text-align: center;
+  margin: 20px 0;
 }
-.pix-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--texto-muted); margin-bottom: 6px; }
-.pix-chave { font-family: 'Jost', sans-serif; font-size: 13px; color: var(--marrom); font-weight: 400; }
-.metodo-select { display: flex; gap: 8px; margin: 16px 0; }
+.pix-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #8C6E5E; margin-bottom: 6px; }
+.pix-chave { font-family: 'Jost', Arial, sans-serif; font-size: 13px; color: #5C1A0A; font-weight: 400; }
+.metodo-select { margin: 16px 0; }
+.metodo-select:after { content: ""; display: table; clear: both; }
 .metodo-btn {
-  flex: 1; padding: 10px 8px; border: 1px solid var(--borda);
-  background: var(--creme); border-radius: 1px; font-family: 'Jost', sans-serif;
-  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--texto-muted); cursor: pointer; transition: all .2s;
+  float: left;
+  width: 30%;
+  margin-right: 4%;
+  padding: 10px 8px;
+  border: 1px solid #e0d0c4;
+  background: #F5F0EA;
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8C6E5E;
+  cursor: pointer;
+  text-align: center;
 }
-.metodo-btn.sel { border-color: var(--terra); color: var(--terra); background: rgba(181,84,26,0.04); }
+.metodo-btn:last-child { margin-right: 0; }
+.metodo-btn-sel { border-color: #B5541A; color: #B5541A; background: #fdf0ea; }
 
 /* ─── NOTIFICAÇÕES ─── */
-.notif { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--borda); }
+.notif {
+  padding: 12px 0;
+  border-bottom: 1px solid #e0d0c4;
+}
+.notif:after { content: ""; display: table; clear: both; }
 .notif:last-child { border-bottom: none; }
-.notif-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terra); margin-top: 5px; flex-shrink: 0; }
-.notif-dot.lida { background: var(--bege-dark); }
-.notif-texto { font-size: 13px; color: var(--texto); line-height: 1.5; }
-.notif-tempo { font-size: 11px; color: var(--texto-muted); margin-top: 3px; }
+.notif-dot {
+  float: left;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #B5541A;
+  margin-top: 5px;
+  margin-right: 12px;
+}
+.notif-dot-lida { background: #D4C5B2; }
+.notif-corpo { float: left; width: calc(100% - 20px); }
+.notif-texto { font-size: 13px; color: #2C1A12; line-height: 1.5; }
+.notif-tempo { font-size: 11px; color: #8C6E5E; margin-top: 3px; }
 
 /* ─── SUCESSO ─── */
 .sucesso-box { text-align: center; padding: 48px 24px; }
 .sucesso-circulo {
-  width: 56px; height: 56px; border-radius: 50%;
+  width: 56px;
+  height: 56px;
   border: 1px solid rgba(60,130,60,0.3);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; margin: 0 auto 20px; color: #2d6b2d;
+  display: block;
+  margin: 0 auto 20px;
+  font-size: 20px;
+  color: #2d6b2d;
+  text-align: center;
+  line-height: 54px;
 }
-.sucesso-titulo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--marrom); margin-bottom: 8px; }
-.sucesso-desc { font-size: 13px; color: var(--texto-muted); margin-bottom: 28px; }
+.sucesso-titulo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: #5C1A0A;
+  margin-bottom: 8px;
+}
+.sucesso-desc { font-size: 13px; color: #8C6E5E; margin-bottom: 28px; }
 
 /* ─── FORMULÁRIO ESCRITÓRIO ─── */
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.field-wrap { margin-bottom: 16px; }
-.field-wrap label { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--texto-muted); margin-bottom: 8px; }
-.field-wrap input, .field-wrap select, .field-wrap textarea {
-  width: 100%; padding: 11px 14px; border: 1px solid var(--borda);
-  border-radius: 1px; background: var(--creme); font-family: 'Jost', sans-serif;
-  font-size: 13px; color: var(--texto); outline: none; transition: border-color .2s;
+.form-grid:after { content: ""; display: table; clear: both; }
+.field-wrap {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+  margin-bottom: 16px;
 }
-.field-wrap input:focus, .field-wrap select:focus, .field-wrap textarea:focus { border-color: var(--terra); }
-.field-wrap.full { grid-column: 1 / -1; }
+.field-wrap:nth-child(even) { margin-right: 0; }
+.field-wrap-full { float: left; width: 100%; margin-right: 0; }
+.field-wrap label, .field-wrap-full label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8C6E5E;
+  margin-bottom: 8px;
+}
+.field-wrap input, .field-wrap select, .field-wrap textarea,
+.field-wrap-full input, .field-wrap-full select, .field-wrap-full textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #e0d0c4;
+  background: #F5F0EA;
+  font-family: 'Jost', Arial, sans-serif;
+  font-size: 13px;
+  color: #2C1A12;
+  outline: none;
+}
+.field-wrap input:focus, .field-wrap select:focus, .field-wrap textarea:focus,
+.field-wrap-full input:focus { border-color: #B5541A; }
 
 /* ─── DIVISOR ─── */
-.divider { height: 1px; background: var(--borda); margin: 28px 0; }
+.divider { height: 1px; background: #e0d0c4; margin: 28px 0; clear: both; }
 
-/* ─── ANIM ─── */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-
-/* ─── RESPONSIVO ─── */
-@media(max-width:700px) {
-  .sidebar { width: 60px; }
-  .sidebar-logo .n, .sidebar-logo .s, .nav-item span, .sidebar-user strong, .sidebar-user small { display: none; }
-  .nav-item { justify-content: center; padding: 14px; }
-  .main { padding: 24px 20px; }
-  .form-grid { grid-template-columns: 1fr; }
-  .field-wrap.full { grid-column: 1; }
-}
+/* ─── FORM INLINE (cartao) ─── */
+.cartao-grid:after { content: ""; display: table; clear: both; }
+.cartao-meio { float: left; width: 48%; margin-right: 4%; }
+.cartao-meio:last-child { margin-right: 0; }
 </style>
 </head>
 <body>
 
 <!-- ════════════════ LOGIN ════════════════ -->
-<div id="login" class="screen active">
+<div id="login" class="screen screen-active">
   <div class="login-box">
     <div class="login-logo">
-      <span class="studio">studio</span>
-      <span class="nome">al<span>u</span>me</span>
+      &nbsp;<span class="nome"><sub><img alt="" height="177" src="logo%20sem%20fundo.png" width="235" /></sub></span>
     </div>
     <p class="login-sub">Portal do cliente</p>
     <div class="field">
       <label>E-mail</label>
-      <input type="email" id="login-email" placeholder="seu@email.com" value="cliente@email.com">
+      <input type="email" id="login-email" value="cliente@email.com" />
     </div>
     <div class="field">
       <label>Senha</label>
-      <input type="password" id="login-senha" placeholder="••••••••" value="123456">
+      <input type="password" id="login-senha" value="123456" />
     </div>
     <button class="btn-login" onclick="entrar('cliente')">Entrar</button>
     <div class="login-hint">Esqueceu sua senha? <button onclick="">Recuperar acesso</button></div>
     <div class="demo-btns">
-      <button class="demo-btn" onclick="entrar('cliente')">Demo — Cliente</button>
-      <button class="demo-btn" onclick="entrar('escritorio')">Demo — Escritório</button>
+      <button class="demo-btn" onclick="entrar('cliente')">&nbsp;Cliente</button>
+      <button class="demo-btn" onclick="entrar('escritorio')">&nbsp;Escrit&oacute;rio</button>
     </div>
   </div>
 </div>
@@ -427,61 +613,85 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
 <div id="cliente" class="screen">
   <div class="sidebar">
     <div class="sidebar-logo">
-      <div class="s">studio</div>
-      <div class="n">al<span>u</span>me</div>
+      <span class="s">studio</span>
+      <span class="n">al<span>u</span>me</span>
     </div>
     <nav class="sidebar-nav">
-      <div class="nav-item active" onclick="showPage('cliente','pg-projetos',this)">
-        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 8h6M5 5h6M5 11h4"/></svg>
-        <span>Meus projetos</span>
-      </div>
-      <div class="nav-item" onclick="showPage('cliente','pg-arquivos',this)">
-        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 2H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6L9 2z"/><path d="M9 2v4h4"/></svg>
-        <span>Arquivos</span>
-      </div>
-      <div class="nav-item" onclick="showPage('cliente','pg-pagamento',this)">
-        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="4" width="14" height="9" rx="1"/><path d="M1 7h14"/></svg>
-        <span>Pagamento</span>
-      </div>
-      <div class="nav-item" onclick="showPage('cliente','pg-atualizacoes',this)">
-        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 2a6 6 0 100 12A6 6 0 008 2z"/><path d="M8 5v3l2 1.5"/></svg>
-        <span>Atualizações</span>
-      </div>
+      <a class="nav-item nav-item-active" id="nav-cli-projetos" onclick="showPage('cliente','pg-projetos','nav-cli-projetos'); return false;" href="#">
+        <span class="nav-icon-wrap">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 8h6M5 5h6M5 11h4"/></svg>
+        </span>
+        Meus projetos
+      </a>
+      <a class="nav-item" id="nav-cli-arquivos" onclick="showPage('cliente','pg-arquivos','nav-cli-arquivos'); return false;" href="#">
+        <span class="nav-icon-wrap">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg"><path d="M9 2H4a1 1 0 00-1 1v10a1 1 0 001 1h8a1 1 0 001-1V6L9 2z"/><path d="M9 2v4h4"/></svg>
+        </span>
+        Arquivos
+      </a>
+      <a class="nav-item" id="nav-cli-pagamento" onclick="showPage('cliente','pg-pagamento','nav-cli-pagamento'); return false;" href="#">
+        <span class="nav-icon-wrap">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="4" width="14" height="9" rx="1"/><path d="M1 7h14"/></svg>
+        </span>
+        Pagamento
+      </a>
+      <a class="nav-item" id="nav-cli-atualizacoes" onclick="showPage('cliente','pg-atualizacoes','nav-cli-atualizacoes'); return false;" href="#">
+        <span class="nav-icon-wrap">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1.5"/></svg>
+        </span>
+        Atualiza&ccedil;&otilde;es
+      </a>
     </nav>
     <div class="sidebar-user">
       <strong>Ana Oliveira</strong>
       <small>cliente</small>
-      <br><button onclick="sair()">Sair</button>
+      <br /><button onclick="sair()">Sair</button>
     </div>
   </div>
 
   <div class="main">
     <!-- Projetos -->
-    <div id="pg-projetos" class="page active">
+    <div id="pg-projetos" class="page page-active">
       <div class="page-header">
         <h1>Meus projetos</h1>
         <p>Acompanhe o andamento em tempo real</p>
       </div>
-
       <div class="projeto-card">
         <div class="projeto-top">
-          <div>
-            <div class="projeto-nome">Residência Oliveira</div>
-            <div class="projeto-cliente">Iniciado em março de 2026</div>
+          <div class="projeto-top-info">
+            <div class="projeto-nome">Resid&ecirc;ncia Oliveira</div>
+            <div class="projeto-cliente">Iniciado em mar&ccedil;o de 2026</div>
           </div>
-          <span class="badge badge-andamento">Em andamento</span>
+          <div class="projeto-top-badge">
+            <span class="badge badge-andamento">Em andamento</span>
+          </div>
         </div>
-        <div class="progress-label"><span>Projeto executivo</span><span>65%</span></div>
+        <div class="progress-label">
+          <span>Projeto executivo</span>
+          <span>65%</span>
+        </div>
         <div class="progress-track"><div class="progress-fill" style="width:65%"></div></div>
         <div class="etapas">
-          <div class="etapa feita"><div class="etapa-dot">✓</div><div class="etapa-nome">Briefing</div></div>
-          <div class="etapa feita"><div class="etapa-dot">✓</div><div class="etapa-nome">Anteprojeto</div></div>
-          <div class="etapa atual"><div class="etapa-dot">3</div><div class="etapa-nome">Executivo</div></div>
-          <div class="etapa"><div class="etapa-dot">4</div><div class="etapa-nome">Entrega</div></div>
+          <div class="etapa etapa-feita">
+            <span class="etapa-dot">&#10003;</span>
+            <span class="etapa-nome">Briefing</span>
+          </div>
+          <div class="etapa etapa-feita">
+            <span class="etapa-dot">&#10003;</span>
+            <span class="etapa-nome">Anteprojeto</span>
+          </div>
+          <div class="etapa etapa-atual">
+            <span class="etapa-dot">3</span>
+            <span class="etapa-nome">Executivo</span>
+          </div>
+          <div class="etapa">
+            <span class="etapa-dot">4</span>
+            <span class="etapa-nome">Entrega</span>
+          </div>
         </div>
         <div class="card-actions">
-          <button class="btn-acao btn-outline" onclick="showPage('cliente','pg-arquivos',null)">Ver arquivos</button>
-          <button class="btn-acao btn-terra" onclick="showPage('cliente','pg-pagamento',null)">Realizar pagamento</button>
+          <button class="btn-acao btn-outline" onclick="showPage('cliente','pg-arquivos','nav-cli-arquivos')">Ver arquivos</button>
+          <button class="btn-acao btn-terra" onclick="showPage('cliente','pg-pagamento','nav-cli-pagamento')">Realizar pagamento</button>
         </div>
       </div>
     </div>
@@ -493,38 +703,38 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
         <p>Documentos e pranchas do seu projeto</p>
       </div>
       <div class="projeto-card">
-        <div class="section-title">Residência Oliveira</div>
+        <div class="section-title">Resid&ecirc;ncia Oliveira</div>
         <div class="arquivo-item">
-          <div class="arquivo-icon">PDF</div>
-          <div style="flex:1">
-            <div class="arquivo-nome">Planta baixa — anteprojeto</div>
-            <div class="arquivo-info">Enviado em 10/04/2026 · 4.2 MB</div>
+          <span class="arquivo-icon">PDF</span>
+          <div class="arquivo-info-wrap">
+            <div class="arquivo-nome">Planta baixa &mdash; anteprojeto</div>
+            <div class="arquivo-info-sub">Enviado em 10/04/2026 &middot; 4.2 MB</div>
           </div>
           <span class="arquivo-status disponivel" onclick="alert('Download iniciado!')">Baixar</span>
         </div>
         <div class="arquivo-item">
-          <div class="arquivo-icon">PDF</div>
-          <div style="flex:1">
-            <div class="arquivo-nome">Cortes e elevações</div>
-            <div class="arquivo-info">Enviado em 10/04/2026 · 2.8 MB</div>
+          <span class="arquivo-icon">PDF</span>
+          <div class="arquivo-info-wrap">
+            <div class="arquivo-nome">Cortes e eleva&ccedil;&otilde;es</div>
+            <div class="arquivo-info-sub">Enviado em 10/04/2026 &middot; 2.8 MB</div>
           </div>
           <span class="arquivo-status disponivel" onclick="alert('Download iniciado!')">Baixar</span>
         </div>
         <div class="arquivo-item">
-          <div class="arquivo-icon">DWG</div>
-          <div style="flex:1">
+          <span class="arquivo-icon">DWG</span>
+          <div class="arquivo-info-wrap">
             <div class="arquivo-nome">Projeto executivo completo</div>
-            <div class="arquivo-info">Em revisão — disponível em breve</div>
+            <div class="arquivo-info-sub">Em revis&atilde;o &mdash; dispon&iacute;vel em breve</div>
           </div>
-          <span class="arquivo-status" style="color:#d4a017;font-size:9px;letter-spacing:1px;text-transform:uppercase;">Revisão</span>
+          <span class="arquivo-status" style="color:#d4a017;font-size:9px;letter-spacing:1px;text-transform:uppercase;">Revis&atilde;o</span>
         </div>
         <div class="arquivo-item">
-          <div class="arquivo-icon" style="background:rgba(92,26,10,0.06)">PDF</div>
-          <div style="flex:1">
+          <span class="arquivo-icon">PDF</span>
+          <div class="arquivo-info-wrap">
             <div class="arquivo-nome">Memorial descritivo final</div>
-            <div class="arquivo-info">Liberado após pagamento da parcela 2</div>
+            <div class="arquivo-info-sub">Liberado ap&oacute;s pagamento da parcela 2</div>
           </div>
-          <span class="arquivo-status bloqueado">🔒 Bloqueado</span>
+          <span class="arquivo-status bloqueado">Bloqueado</span>
         </div>
       </div>
     </div>
@@ -533,49 +743,63 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
     <div id="pg-pagamento" class="page">
       <div class="page-header">
         <h1>Pagamento</h1>
-        <p>Realize o pagamento para liberar os próximos arquivos</p>
+        <p>Realize o pagamento para liberar os pr&oacute;ximos arquivos</p>
       </div>
       <div id="tela-pag">
         <div class="pagamento-card">
-          <div class="section-title" style="margin-bottom:16px">Resumo da cobrança</div>
-          <div class="pag-row"><span class="pag-label">Projeto</span><span class="pag-val">Residência Oliveira</span></div>
-          <div class="pag-row"><span class="pag-label">Parcela</span><span class="pag-val">2 de 3</span></div>
-          <div class="pag-row"><span class="pag-label">Vencimento</span><span class="pag-val" style="color:#8a6800">15/05/2026</span></div>
-          <div class="pag-row"><span class="pag-label">Valor</span><span class="pag-total">R$ 5.000</span></div>
+          <div class="section-title" style="margin-bottom:16px">Resumo da cobran&ccedil;a</div>
+          <div class="pag-row">
+            <span class="pag-label">Projeto</span>
+            <span class="pag-val">Resid&ecirc;ncia Oliveira</span>
+          </div>
+          <div class="pag-row">
+            <span class="pag-label">Parcela</span>
+            <span class="pag-val">2 de 3</span>
+          </div>
+          <div class="pag-row">
+            <span class="pag-label">Vencimento</span>
+            <span class="pag-val" style="color:#8a6800">15/05/2026</span>
+          </div>
+          <div class="pag-row">
+            <span class="pag-label">Valor</span>
+            <span class="pag-total">R$ 5.000</span>
+          </div>
           <div class="divider"></div>
           <div class="section-title" style="margin-bottom:12px">Forma de pagamento</div>
           <div class="metodo-select">
-            <button class="metodo-btn sel" onclick="selecionarMetodo(this,'pix-info')">PIX</button>
-            <button class="metodo-btn" onclick="selecionarMetodo(this,'cartao-info')">Cartão</button>
-            <button class="metodo-btn" onclick="selecionarMetodo(this,'boleto-info')">Boleto</button>
+            <button id="btn-pix" class="metodo-btn metodo-btn-sel" onclick="selecionarMetodo('pix-info','btn-pix')">PIX</button>
+            <button id="btn-cartao" class="metodo-btn" onclick="selecionarMetodo('cartao-info','btn-cartao')">Cart&atilde;o</button>
+            <button id="btn-boleto" class="metodo-btn" onclick="selecionarMetodo('boleto-info','btn-boleto')">Boleto</button>
           </div>
           <div id="pix-info">
             <div class="pix-box">
               <div class="pix-label">Chave PIX</div>
               <div class="pix-chave">financeiro@studioalume.com.br</div>
             </div>
-            <p style="font-size:11px;color:var(--texto-muted);margin-bottom:16px">Após o pagamento, o comprovante será verificado automaticamente e os arquivos serão liberados em até 15 minutos.</p>
+            <p style="font-size:11px;color:#8C6E5E;margin-bottom:16px">Ap&oacute;s o pagamento, o comprovante ser&aacute; verificado automaticamente e os arquivos ser&atilde;o liberados em at&eacute; 15 minutos.</p>
           </div>
           <div id="cartao-info" style="display:none">
-            <div class="field-wrap" style="margin-top:16px"><label>Número do cartão</label><input placeholder="0000 0000 0000 0000"></div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-              <div class="field-wrap"><label>Validade</label><input placeholder="MM/AA"></div>
-              <div class="field-wrap"><label>CVV</label><input placeholder="000"></div>
+            <div class="field-wrap-full" style="margin-top:16px"><label>N&uacute;mero do cart&atilde;o</label><input type="text" placeholder="0000 0000 0000 0000" /></div>
+            <div class="cartao-grid">
+              <div class="cartao-meio"><label style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8C6E5E;display:block;margin-bottom:8px">Validade</label><input type="text" placeholder="MM/AA" style="width:100%;padding:11px 14px;border:1px solid #e0d0c4;background:#F5F0EA;font-family:'Jost',Arial,sans-serif;font-size:13px;color:#2C1A12" /></div>
+              <div class="cartao-meio"><label style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8C6E5E;display:block;margin-bottom:8px">CVV</label><input type="text" placeholder="000" style="width:100%;padding:11px 14px;border:1px solid #e0d0c4;background:#F5F0EA;font-family:'Jost',Arial,sans-serif;font-size:13px;color:#2C1A12" /></div>
             </div>
           </div>
           <div id="boleto-info" style="display:none">
-            <p style="font-size:12px;color:var(--texto-muted);margin:16px 0">O boleto será gerado e enviado para seu e-mail. Prazo de compensação: até 3 dias úteis.</p>
+            <p style="font-size:12px;color:#8C6E5E;margin:16px 0">O boleto ser&aacute; gerado e enviado para seu e-mail. Prazo de compensa&ccedil;&atilde;o: at&eacute; 3 dias &uacute;teis.</p>
           </div>
-          <button class="btn-acao btn-solid" style="width:100%;padding:14px;font-size:11px" onclick="confirmarPagamento()">Confirmar pagamento</button>
+          <div style="clear:both;margin-top:12px">
+            <button class="btn-acao btn-solid" style="width:100%;padding:14px;font-size:11px;float:none" onclick="confirmarPagamento()">Confirmar pagamento</button>
+          </div>
         </div>
       </div>
       <div id="tela-sucesso" style="display:none">
         <div class="pagamento-card">
           <div class="sucesso-box">
-            <div class="sucesso-circulo">✓</div>
+            <span class="sucesso-circulo">&#10003;</span>
             <div class="sucesso-titulo">Pagamento confirmado</div>
-            <div class="sucesso-desc">Os arquivos da parcela 2 foram liberados e estão disponíveis para download.</div>
-            <button class="btn-acao btn-terra" onclick="showPage('cliente','pg-arquivos',null)">Ver meus arquivos</button>
+            <div class="sucesso-desc">Os arquivos da parcela 2 foram liberados e est&atilde;o dispon&iacute;veis para download.</div>
+            <button class="btn-acao btn-terra" onclick="showPage('cliente','pg-arquivos','nav-cli-arquivos')">Ver meus arquivos</button>
           </div>
         </div>
       </div>
@@ -584,14 +808,38 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
     <!-- Atualizações -->
     <div id="pg-atualizacoes" class="page">
       <div class="page-header">
-        <h1>Atualizações</h1>
-        <p>Histórico de comunicações do seu projeto</p>
+        <h1>Atualiza&ccedil;&otilde;es</h1>
+        <p>Hist&oacute;rico de comunica&ccedil;&otilde;es do seu projeto</p>
       </div>
       <div class="projeto-card">
-        <div class="notif"><div class="notif-dot"></div><div><div class="notif-texto">Planta baixa aprovada e disponível para download.</div><div class="notif-tempo">Hoje, 09:14</div></div></div>
-        <div class="notif"><div class="notif-dot"></div><div><div class="notif-texto">Revisão do anteprojeto concluída. Novos arquivos adicionados.</div><div class="notif-tempo">10/04/2026</div></div></div>
-        <div class="notif"><div class="notif-dot lida"></div><div><div class="notif-texto">Pagamento da parcela 1 confirmado. Projeto executivo iniciado.</div><div class="notif-tempo">01/04/2026</div></div></div>
-        <div class="notif"><div class="notif-dot lida"></div><div><div class="notif-texto">Bem-vinda ao portal Studio Alume! Seu projeto foi cadastrado.</div><div class="notif-tempo">15/03/2026</div></div></div>
+        <div class="notif">
+          <span class="notif-dot"></span>
+          <div class="notif-corpo">
+            <div class="notif-texto">Planta baixa aprovada e dispon&iacute;vel para download.</div>
+            <div class="notif-tempo">Hoje, 09:14</div>
+          </div>
+        </div>
+        <div class="notif">
+          <span class="notif-dot"></span>
+          <div class="notif-corpo">
+            <div class="notif-texto">Revis&atilde;o do anteprojeto conclu&iacute;da. Novos arquivos adicionados.</div>
+            <div class="notif-tempo">10/04/2026</div>
+          </div>
+        </div>
+        <div class="notif">
+          <span class="notif-dot notif-dot-lida"></span>
+          <div class="notif-corpo">
+            <div class="notif-texto">Pagamento da parcela 1 confirmado. Projeto executivo iniciado.</div>
+            <div class="notif-tempo">01/04/2026</div>
+          </div>
+        </div>
+        <div class="notif">
+          <span class="notif-dot notif-dot-lida"></span>
+          <div class="notif-corpo">
+            <div class="notif-texto">Bem-vinda ao portal Studio Alume! Seu projeto foi cadastrado.</div>
+            <div class="notif-tempo">15/03/2026</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -601,52 +849,81 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
 <div id="escritorio" class="screen">
   <div class="sidebar">
     <div class="sidebar-logo">
-      <div class="s">studio</div>
-      <div class="n">al<span>u</span>me</div>
+      <span class="s">studio</span>
+      <span class="n">al<span>u</span>me</span>
     </div>
     <nav class="sidebar-nav">
-      <div class="nav-item active" onclick="showPage('escritorio','pg-painel',this)">
-        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
-        <span>Painel</span>
-      </div>
-      <div class="nav-item" onclick="showPage('escritorio','pg-projetos-esc',this)">
-        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 8h6M5 5h6M5 11h4"/></svg>
-        <span>Projetos</span>
-      </div>
-      <div class="nav-item" onclick="showPage('escritorio','pg-novo',this)">
-        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="8" cy="8" r="6"/><path d="M8 5v6M5 8h6"/></svg>
-        <span>Novo projeto</span>
-      </div>
-      <div class="nav-item" onclick="showPage('escritorio','pg-financeiro',this)">
-        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 10l4-4 3 3 5-5"/><path d="M12 4h2v2"/></svg>
-        <span>Financeiro</span>
-      </div>
+      <a class="nav-item nav-item-active" id="nav-esc-painel" onclick="showPage('escritorio','pg-painel','nav-esc-painel'); return false;" href="#">
+        <span class="nav-icon-wrap">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+        </span>
+        Painel
+      </a>
+      <a class="nav-item" id="nav-esc-projetos" onclick="showPage('escritorio','pg-projetos-esc','nav-esc-projetos'); return false;" href="#">
+        <span class="nav-icon-wrap">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 8h6M5 5h6M5 11h4"/></svg>
+        </span>
+        Projetos
+      </a>
+      <a class="nav-item" id="nav-esc-novo" onclick="showPage('escritorio','pg-novo','nav-esc-novo'); return false;" href="#">
+        <span class="nav-icon-wrap">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="6"/><path d="M8 5v6M5 8h6"/></svg>
+        </span>
+        Novo projeto
+      </a>
+      <a class="nav-item" id="nav-esc-financeiro" onclick="showPage('escritorio','pg-financeiro','nav-esc-financeiro'); return false;" href="#">
+        <span class="nav-icon-wrap">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" xmlns="http://www.w3.org/2000/svg"><path d="M2 10l4-4 3 3 5-5"/><path d="M12 4h2v2"/></svg>
+        </span>
+        Financeiro
+      </a>
     </nav>
     <div class="sidebar-user">
       <strong>Studio Alume</strong>
       <small>administrador</small>
-      <br><button onclick="sair()">Sair</button>
+      <br /><button onclick="sair()">Sair</button>
     </div>
   </div>
 
   <div class="main">
     <!-- Painel -->
-    <div id="pg-painel" class="page active">
+    <div id="pg-painel" class="page page-active">
       <div class="page-header">
         <h1>Bom dia, Studio Alume</h1>
         <p>Resumo dos seus projetos ativos</p>
       </div>
       <div class="metrics">
-        <div class="metric"><div class="metric-label">Projetos ativos</div><div class="metric-val">4</div><div class="metric-sub">1 aguardando pagamento</div></div>
-        <div class="metric"><div class="metric-label">Recebido no mês</div><div class="metric-val">R$ 18.400</div><div class="metric-sub">2 parcelas pendentes</div></div>
-        <div class="metric"><div class="metric-label">Entregas próximas</div><div class="metric-val">2</div><div class="metric-sub">nos próximos 7 dias</div></div>
-        <div class="metric"><div class="metric-label">Clientes ativos</div><div class="metric-val">4</div><div class="metric-sub">todos com portal ativo</div></div>
+        <div class="metric">
+          <div class="metric-label">Projetos ativos</div>
+          <div class="metric-val">4</div>
+          <div class="metric-sub">1 aguardando pagamento</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Recebido no m&ecirc;s</div>
+          <div class="metric-val">R$ 18.400</div>
+          <div class="metric-sub">2 parcelas pendentes</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Entregas pr&oacute;ximas</div>
+          <div class="metric-val">2</div>
+          <div class="metric-sub">nos pr&oacute;ximos 7 dias</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Clientes ativos</div>
+          <div class="metric-val">4</div>
+          <div class="metric-sub">todos com portal ativo</div>
+        </div>
       </div>
       <div class="section-title">Projetos em andamento</div>
       <div class="projeto-card">
         <div class="projeto-top">
-          <div><div class="projeto-nome">Residência Oliveira</div><div class="projeto-cliente">Ana Oliveira · Fortaleza</div></div>
-          <span class="badge badge-andamento">Em andamento</span>
+          <div class="projeto-top-info">
+            <div class="projeto-nome">Resid&ecirc;ncia Oliveira</div>
+            <div class="projeto-cliente">Ana Oliveira &middot; Fortaleza</div>
+          </div>
+          <div class="projeto-top-badge">
+            <span class="badge badge-andamento">Em andamento</span>
+          </div>
         </div>
         <div class="progress-label"><span>Projeto executivo</span><span>65%</span></div>
         <div class="progress-track"><div class="progress-fill" style="width:65%"></div></div>
@@ -658,14 +935,19 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
       </div>
       <div class="projeto-card">
         <div class="projeto-top">
-          <div><div class="projeto-nome">Comercial Santos & Filhos</div><div class="projeto-cliente">Roberto Santos · Fortaleza</div></div>
-          <span class="badge badge-aguardando">Aguard. pagamento</span>
+          <div class="projeto-top-info">
+            <div class="projeto-nome">Comercial Santos &amp; Filhos</div>
+            <div class="projeto-cliente">Roberto Santos &middot; Fortaleza</div>
+          </div>
+          <div class="projeto-top-badge">
+            <span class="badge badge-aguardando">Aguard. pagamento</span>
+          </div>
         </div>
-        <div class="progress-label"><span>Finalização</span><span>90%</span></div>
+        <div class="progress-label"><span>Finaliza&ccedil;&atilde;o</span><span>90%</span></div>
         <div class="progress-track"><div class="progress-fill" style="width:90%"></div></div>
         <div class="card-actions">
           <button class="btn-acao btn-outline">Enviar lembrete</button>
-          <button class="btn-acao btn-terra">Gerar cobrança PIX</button>
+          <button class="btn-acao btn-terra">Gerar cobran&ccedil;a PIX</button>
         </div>
       </div>
     </div>
@@ -677,20 +959,32 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
         <p>Gerencie e atualize o andamento de cada cliente</p>
       </div>
       <div class="projeto-card">
-        <div class="projeto-top"><div><div class="projeto-nome">Residência Oliveira</div><div class="projeto-cliente">Ana Oliveira · iniciado mar/2026</div></div><span class="badge badge-andamento">Em andamento</span></div>
-        <div class="progress-track" style="margin-bottom:0"><div class="progress-fill" style="width:65%"></div></div>
+        <div class="projeto-top">
+          <div class="projeto-top-info"><div class="projeto-nome">Resid&ecirc;ncia Oliveira</div><div class="projeto-cliente">Ana Oliveira &middot; iniciado mar/2026</div></div>
+          <div class="projeto-top-badge"><span class="badge badge-andamento">Em andamento</span></div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:65%"></div></div>
       </div>
       <div class="projeto-card">
-        <div class="projeto-top"><div><div class="projeto-nome">Comercial Santos & Filhos</div><div class="projeto-cliente">Roberto Santos · iniciado jan/2026</div></div><span class="badge badge-aguardando">Aguard. pagamento</span></div>
-        <div class="progress-track" style="margin-bottom:0"><div class="progress-fill" style="width:90%"></div></div>
+        <div class="projeto-top">
+          <div class="projeto-top-info"><div class="projeto-nome">Comercial Santos &amp; Filhos</div><div class="projeto-cliente">Roberto Santos &middot; iniciado jan/2026</div></div>
+          <div class="projeto-top-badge"><span class="badge badge-aguardando">Aguard. pagamento</span></div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:90%"></div></div>
       </div>
       <div class="projeto-card">
-        <div class="projeto-top"><div><div class="projeto-nome">Apartamento Lima</div><div class="projeto-cliente">Carla Lima · iniciado fev/2026</div></div><span class="badge badge-andamento">Em andamento</span></div>
-        <div class="progress-track" style="margin-bottom:0"><div class="progress-fill" style="width:40%"></div></div>
+        <div class="projeto-top">
+          <div class="projeto-top-info"><div class="projeto-nome">Apartamento Lima</div><div class="projeto-cliente">Carla Lima &middot; iniciado fev/2026</div></div>
+          <div class="projeto-top-badge"><span class="badge badge-andamento">Em andamento</span></div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:40%"></div></div>
       </div>
       <div class="projeto-card">
-        <div class="projeto-top"><div><div class="projeto-nome">Studio Fernandes</div><div class="projeto-cliente">Marcos Fernandes · iniciado abr/2026</div></div><span class="badge badge-andamento">Em andamento</span></div>
-        <div class="progress-track" style="margin-bottom:0"><div class="progress-fill" style="width:15%"></div></div>
+        <div class="projeto-top">
+          <div class="projeto-top-info"><div class="projeto-nome">Studio Fernandes</div><div class="projeto-cliente">Marcos Fernandes &middot; iniciado abr/2026</div></div>
+          <div class="projeto-top-badge"><span class="badge badge-andamento">Em andamento</span></div>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:15%"></div></div>
       </div>
     </div>
 
@@ -703,21 +997,23 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
       <div class="projeto-card" style="max-width:600px">
         <div class="section-title" style="margin-bottom:20px">Dados do cliente</div>
         <div class="form-grid">
-          <div class="field-wrap"><label>Nome do cliente</label><input placeholder="Nome completo"></div>
-          <div class="field-wrap"><label>E-mail</label><input placeholder="email@cliente.com"></div>
-          <div class="field-wrap"><label>Telefone</label><input placeholder="(85) 99999-9999"></div>
-          <div class="field-wrap"><label>Cidade</label><input placeholder="Fortaleza"></div>
-          <div class="field-wrap full"><label>Nome do projeto</label><input placeholder="Ex: Residência — Bairro Aldeota"></div>
-          <div class="field-wrap"><label>Valor total (R$)</label><input placeholder="0,00"></div>
-          <div class="field-wrap"><label>Número de parcelas</label><select><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
-          <div class="field-wrap"><label>Data de início</label><input type="date"></div>
-          <div class="field-wrap"><label>Previsão de entrega</label><input type="date"></div>
+          <div class="field-wrap"><label>Nome do cliente</label><input type="text" placeholder="Nome completo" /></div>
+          <div class="field-wrap"><label>E-mail</label><input type="text" placeholder="email@cliente.com" /></div>
+          <div class="field-wrap"><label>Telefone</label><input type="text" placeholder="(85) 99999-9999" /></div>
+          <div class="field-wrap"><label>Cidade</label><input type="text" placeholder="Fortaleza" /></div>
+          <div class="field-wrap-full"><label>Nome do projeto</label><input type="text" placeholder="Ex: Resid&#234;ncia &#8212; Bairro Aldeota" /></div>
+          <div class="field-wrap"><label>Valor total (R$)</label><input type="text" placeholder="0,00" /></div>
+          <div class="field-wrap"><label>N&uacute;mero de parcelas</label>
+            <select>
+              <option>1</option><option>2</option><option selected="selected">3</option><option>4</option><option>5</option>
+            </select>
+          </div>
+          <div class="field-wrap"><label>Data de in&iacute;cio</label><input type="date" /></div>
+          <div class="field-wrap"><label>Previs&atilde;o de entrega</label><input type="date" /></div>
         </div>
         <div class="divider"></div>
         <div class="section-title" style="margin-bottom:16px">Etapa inicial</div>
-        <div class="form-grid">
-          <div class="field-wrap full"><label>Observações internas</label><textarea rows="3" placeholder="Notas sobre o projeto..."></textarea></div>
-        </div>
+        <div class="field-wrap-full"><label>Observa&ccedil;&otilde;es internas</label><textarea rows="3" placeholder="Notas sobre o projeto..."></textarea></div>
         <div class="card-actions" style="margin-top:8px">
           <button class="btn-acao btn-solid" onclick="alert('Projeto criado! O cliente receberá um e-mail com o acesso ao portal.')">Criar projeto e enviar acesso</button>
         </div>
@@ -728,17 +1024,17 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
     <div id="pg-financeiro" class="page">
       <div class="page-header">
         <h1>Financeiro</h1>
-        <p>Visão geral das cobranças e recebimentos</p>
+        <p>Vis&atilde;o geral das cobran&ccedil;as e recebimentos</p>
       </div>
       <div class="metrics">
         <div class="metric"><div class="metric-label">Total a receber</div><div class="metric-val">R$ 34.200</div><div class="metric-sub">em 3 projetos</div></div>
-        <div class="metric"><div class="metric-label">Recebido no mês</div><div class="metric-val">R$ 18.400</div><div class="metric-sub">abril 2026</div></div>
-        <div class="metric"><div class="metric-label">Em aberto</div><div class="metric-val">R$ 15.800</div><div class="metric-sub">2 cobranças pendentes</div></div>
+        <div class="metric"><div class="metric-label">Recebido no m&ecirc;s</div><div class="metric-val">R$ 18.400</div><div class="metric-sub">abril 2026</div></div>
+        <div class="metric"><div class="metric-label">Em aberto</div><div class="metric-val">R$ 15.800</div><div class="metric-sub">2 cobran&ccedil;as pendentes</div></div>
       </div>
-      <div class="section-title">Cobranças pendentes</div>
+      <div class="section-title">Cobran&ccedil;as pendentes</div>
       <div class="projeto-card">
         <div class="pag-row"><span class="pag-label">Cliente</span><span class="pag-val">Ana Oliveira</span></div>
-        <div class="pag-row"><span class="pag-label">Parcela</span><span class="pag-val">2 de 3 · Residência Oliveira</span></div>
+        <div class="pag-row"><span class="pag-label">Parcela</span><span class="pag-val">2 de 3 &middot; Resid&ecirc;ncia Oliveira</span></div>
         <div class="pag-row"><span class="pag-label">Valor</span><span class="pag-val">R$ 5.000</span></div>
         <div class="pag-row"><span class="pag-label">Vencimento</span><span class="pag-val" style="color:#8a6800">15/05/2026</span></div>
         <div class="card-actions" style="margin-top:12px">
@@ -748,9 +1044,9 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
       </div>
       <div class="projeto-card">
         <div class="pag-row"><span class="pag-label">Cliente</span><span class="pag-val">Roberto Santos</span></div>
-        <div class="pag-row"><span class="pag-label">Parcela</span><span class="pag-val">3 de 3 · Comercial Santos & Filhos</span></div>
+        <div class="pag-row"><span class="pag-label">Parcela</span><span class="pag-val">3 de 3 &middot; Comercial Santos &amp; Filhos</span></div>
         <div class="pag-row"><span class="pag-label">Valor</span><span class="pag-val">R$ 10.800</span></div>
-        <div class="pag-row"><span class="pag-label">Vencimento</span><span class="pag-val" style="color:#8a3000">Vencido — 05/04/2026</span></div>
+        <div class="pag-row"><span class="pag-label">Vencimento</span><span class="pag-val" style="color:#8a3000">Vencido &mdash; 05/04/2026</span></div>
         <div class="card-actions" style="margin-top:12px">
           <button class="btn-acao btn-outline">Enviar lembrete urgente</button>
           <button class="btn-acao btn-terra">Gerar boleto</button>
@@ -760,39 +1056,100 @@ html, body { height: 100%; font-family: 'Jost', sans-serif; background: var(--cr
   </div>
 </div>
 
-<script>
+<script type="text/javascript">
+// ─── Navega entre telas principais (login / cliente / escritorio) ───
 function entrar(tipo) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(tipo).classList.add('active');
+  var telas = document.getElementsByClassName('screen');
+  for (var i = 0; i < telas.length; i++) {
+    telas[i].className = telas[i].className.replace(' screen-active', '');
+    telas[i].style.display = 'none';
+  }
+  var alvo = document.getElementById(tipo);
+  alvo.style.display = 'block';
+  alvo.className += ' screen-active';
 }
+
 function sair() {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('login').classList.add('active');
+  entrar('login');
 }
-function showPage(portal, pageId, navEl) {
-  document.querySelectorAll('#' + portal + ' .page').forEach(p => p.classList.remove('active'));
-  document.getElementById(pageId).classList.add('active');
-  if (navEl) {
-    document.querySelectorAll('#' + portal + ' .nav-item').forEach(n => n.classList.remove('active'));
-    navEl.classList.add('active');
+
+// ─── Troca de páginas dentro de cada portal ───
+function showPage(portal, pageId, navId) {
+  var portalEl = document.getElementById(portal);
+
+  // Oculta todas as pages do portal
+  var pages = portalEl.getElementsByClassName('page');
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].style.display = 'none';
+    pages[i].className = pages[i].className.replace(' page-active', '');
   }
+
+  // Exibe a page solicitada
+  var target = document.getElementById(pageId);
+  if (target) {
+    target.style.display = 'block';
+    target.className += ' page-active';
+  }
+
+  // Atualiza nav ativo
+  if (navId) {
+    var navItems = portalEl.getElementsByClassName('nav-item');
+    for (var j = 0; j < navItems.length; j++) {
+      navItems[j].className = navItems[j].className.replace(' nav-item-active', '');
+    }
+    var navEl = document.getElementById(navId);
+    if (navEl) { navEl.className += ' nav-item-active'; }
+  }
+
+  // Reset da tela de pagamento
   if (pageId === 'pg-pagamento') {
-    document.getElementById('tela-pag').style.display = 'block';
-    document.getElementById('tela-sucesso').style.display = 'none';
+    var telaPag = document.getElementById('tela-pag');
+    var telaSuc = document.getElementById('tela-sucesso');
+    if (telaPag) { telaPag.style.display = 'block'; }
+    if (telaSuc) { telaSuc.style.display = 'none'; }
   }
 }
-function selecionarMetodo(btn, infoId) {
-  document.querySelectorAll('.metodo-btn').forEach(b => b.classList.remove('sel'));
-  btn.classList.add('sel');
-  ['pix-info','cartao-info','boleto-info'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.style.display = id === infoId ? 'block' : 'none';
-  });
+
+// ─── Seleção de método de pagamento ───
+function selecionarMetodo(infoId, btnId) {
+  var infos = ['pix-info', 'cartao-info', 'boleto-info'];
+  for (var i = 0; i < infos.length; i++) {
+    var el = document.getElementById(infos[i]);
+    if (el) { el.style.display = (infos[i] === infoId) ? 'block' : 'none'; }
+  }
+  var btns = ['btn-pix', 'btn-cartao', 'btn-boleto'];
+  for (var j = 0; j < btns.length; j++) {
+    var b = document.getElementById(btns[j]);
+    if (b) { b.className = (btns[j] === btnId) ? 'metodo-btn metodo-btn-sel' : 'metodo-btn'; }
+  }
 }
+
+// ─── Confirmar pagamento ───
 function confirmarPagamento() {
   document.getElementById('tela-pag').style.display = 'none';
   document.getElementById('tela-sucesso').style.display = 'block';
 }
+
+// ─── Init: garante que só o login fica visível no carregamento ───
+window.onload = function() {
+  var telas = ['login', 'cliente', 'escritorio'];
+  for (var i = 0; i < telas.length; i++) {
+    document.getElementById(telas[i]).style.display = (telas[i] === 'login') ? 'block' : 'none';
+  }
+  // Garante que as pages internas iniciem corretamente
+  initPages('cliente', 'pg-projetos');
+  initPages('escritorio', 'pg-painel');
+};
+
+function initPages(portalId, activePageId) {
+  var portalEl = document.getElementById(portalId);
+  if (!portalEl) return;
+  var pages = portalEl.getElementsByClassName('page');
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].style.display = (pages[i].id === activePageId) ? 'block' : 'none';
+  }
+}
 </script>
 </body>
 </html>
+
